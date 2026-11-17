@@ -1,6 +1,3 @@
-from operator import le
-
-
 turma = []
 notaN1 = []
 notaN2 = []
