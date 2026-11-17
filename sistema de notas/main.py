@@ -5,7 +5,7 @@ valorMedia = []
 situacao = []
 
 def cadastro():
-    nome = input("\nDigite o nome do aluno: ").capitalize().strip()
+    nome = input("\nDigite o nome do aluno: ").title().strip()
 
     while True:
         nota1 = float(input("\nInforme a primeira nota (0 a 10): ").strip())
@@ -84,7 +84,7 @@ def buscarAluno():
             print("\nNão há alunos cadastrados!")
             return
     else:
-        busca = input("\nInforme o nome do aluno que deseja achar: ").capitalize().strip()
+        busca = input("\nInforme o nome do aluno que deseja achar: ").title().strip()
         if busca in turma:
             posicao = turma.index(busca)
             print(f"\nNome: {turma[posicao]}")
