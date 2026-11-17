@@ -46,7 +46,7 @@ def calculoMedia(nota1, nota2):
 def resultMedia(nota1, nota2):
     return (nota1 + nota2) / 2
 
-def listaAlunos():
+def relatorioAlunos():
     if len(turma) == 0:
         print("\nNão há alunos cadastrados!")
         return
@@ -58,26 +58,66 @@ def listaAlunos():
             print(f"Situação: {situacao}")
 
 def maiorMedia():
-    numero_maior = max(valorMedia)
-    posicao = valorMedia.index(numero_maior)
-    print(posicao)
+    if len(turma) == 0:
+            print("\nNão há alunos cadastrados!")
+            return
+    else:
+        numero_maior = max(valorMedia)
+        posicao = valorMedia.index(numero_maior)
 
-    print(f"\nNome: {turma[posicao]}")
-    print(f"Nota 1: {notaN1[posicao]}")
-    print(f"Nota 2: {notaN2[posicao]}")
-    print(f"Situação: {situacao[posicao]}\n")
+        print(f"\nNome: {turma[posicao]}")
+        print(f"Nota 1: {notaN1[posicao]}")
+        print(f"Nota 2: {notaN2[posicao]}")
+        print(f"Situação: {situacao[posicao]}\n")
 
 def mediaGeral():
     return sum(valorMedia) / len(valorMedia)
 
-'''while True:
-    opcao = input("Escolha: ").strip()
+def buscarAluno():
+
+    if len(turma) == 0:
+            print("\nNão há alunos cadastrados!")
+            return
+    else:
+        busca = input("\nInforme o nome do aluno que deseja achar: ").capitalize().strip()
+        if busca in turma:
+            posicao = turma.index(busca)
+            print(f"\nNome: {turma[posicao]}")
+            print(f"Nota 1: {notaN1[posicao]}")
+            print(f"Nota 2: {notaN2[posicao]}")
+            print(f"Situação: {situacao[posicao]}\n")
+        else:
+            print("\nAluno não encontrado!")
+
+while True:
+    print('''
+ESCOLHA UMA OPÇÃO - 1, 2, 3, 4, 5, 6
+====================================
+
+1 - CADASTRAR ALUNO
+2 - ALUNOS CADASTRADOS
+3 - ALUNO COM MAIOR MÉDIA
+4 - MÉDIA GERAL DA TURMA
+5 - BUSCAR ALUNO
+6 - SAIR
+
+====================================
+''')
+
+    opcao = input("Escolha uma opção: ").strip()
 
     if opcao == "1":
         cadastro()
     elif opcao == "2":
-        maiorMedia()
+        relatorioAlunos()
     elif opcao == "3":
-        print(f"A média geral da turma é: {mediaGeral()}")
+        maiorMedia()
+    elif opcao == "4":
+        print(f"\nA média geral da turma é: {mediaGeral()}")
+    elif opcao == "5":
+        buscarAluno()
+    elif opcao == "6":
+        print("\nFinalizando programa")
+        break
     else:
-        break'''
+        print("\nDigite uma opção válida!")
